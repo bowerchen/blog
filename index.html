@@ -167,8 +167,8 @@
         <p>今天在工作上遇到一些问题：</p>
 <h1 id="如何实现淘宝店铺基础版的全屏店招？"><a href="#如何实现淘宝店铺基础版的全屏店招？" class="headerlink" title="如何实现淘宝店铺基础版的全屏店招？"></a>如何实现淘宝店铺基础版的全屏店招？</h1><p>百度了很多遍方法，也找不出好的解决办法。<br>只好实践出真理了。</p>
 <p>首先，在淘宝基础版中，店招<strong>最大的宽度950px</strong>，<strong>高度120px~150px</strong>。而<strong>页头背景也只有固定的蓝白色</strong>。如果想要实现自定义的店招，就只能通过css来处理了。</p>
-<p>第一步，用ps制作好全屏店招。这制作过程省略……<br>（本人顺便用一个海报来做演示）<br></p>
-<p>第二步，将店招图片上传到淘宝的<strong>图片空间</strong><br></p>
+<p>第一步，用ps制作好全屏店招。这制作过程省略……<br>（本人顺便用一个海报来做演示）<br><img src="/2018/12/20/淘宝基础版全屏店招制作/img.JPG"></p>
+<p>第二步，将店招图片上传到淘宝的<strong>图片空间</strong><br><img src="/2018/12/20/淘宝基础版全屏店招制作/upload.JPG"></p>
 <p>第三步，进入淘宝装修后台，点开导航条的右上角的设置，在<strong>显示设置</strong>里添加css代码。<br><code>.skin-box-bd {
     position: relative;
     left: -485px;
@@ -178,8 +178,8 @@
     padding-left: 485px;
     padding-top: 120px;
     background: url(&quot;店招图片背景地址&quot;) 0 0 no-repeat;
-}</code><br></p>
-<p>第四步，点击发布就OK了，就可以看到全屏店招了<br></p>
+}</code><br><img src="/2018/12/20/淘宝基础版全屏店招制作/addcss.JPG"></p>
+<p>第四步，点击发布就OK了，就可以看到全屏店招了<br><img src="/2018/12/20/淘宝基础版全屏店招制作/realize.JPG"></p>
 <p>当然，这全屏店招有些限制，比如</p>
 <ol>
 <li>不能添加热点连接</li>
