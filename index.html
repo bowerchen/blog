@@ -144,6 +144,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="posts-淘宝基础版店铺如何实现全屏代码" class="article article-type-posts  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/">淘宝店铺如何实现全屏代码</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/" class="archive-article-date">
+  	<time datetime="2019-01-01T12:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="淘宝店铺简单实现全屏代码"><a href="#淘宝店铺简单实现全屏代码" class="headerlink" title="淘宝店铺简单实现全屏代码"></a>淘宝店铺简单实现全屏代码</h1><p>在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。</p>
+<p>下面，我一一讲解：</p>
+<h2 id="第一步，先准备好1920px宽的海报。"><a href="#第一步，先准备好1920px宽的海报。" class="headerlink" title="第一步，先准备好1920px宽的海报。"></a>第一步，先准备好1920px宽的海报。</h2><p>海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。<br>&lt;% asset_img banner.JPG 海报图片 %&gt;</p>
+<h2 id="第二步，上传到网店图片空间"><a href="#第二步，上传到网店图片空间" class="headerlink" title="第二步，上传到网店图片空间"></a>第二步，上传到网店图片空间</h2><p>&lt;% asset_img upload.JPG 上传海报 %&gt;</p>
+<h2 id="第三步，进入pc店铺装修，并放置950或者750自定义模块"><a href="#第三步，进入pc店铺装修，并放置950或者750自定义模块" class="headerlink" title="第三步，进入pc店铺装修，并放置950或者750自定义模块"></a>第三步，进入pc店铺装修，并放置950或者750自定义模块</h2><p>&lt;% asset_img model.JPG 上传海报 %&gt;</p>
+<h2 id="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"><a href="#第四步，直接copy下面代码将图片地址改成上传网店图片的地址" class="headerlink" title="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"></a>第四步，直接copy下面代码将图片地址改成上传网店图片的地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;height:海报高度&quot;&gt;</span><br><span class="line">    &lt;div clas=&quot;footer-more-triggle&quot; style=&quot;width: 1px; height: 1px; padding:0;border:0;line-height:0;left:auto; top:auto&quot;&gt;</span><br><span class="line">        &lt;div clas=&quot;footer-more-triggle&quot; style=&quot;width: 1920px; height: 海报高度; padding:0;border:0;line-height:0;left: -485px或者-675px; top:auto&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;图片地址&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>&lt;% asset_img code.JPG 放置代码 %&gt;<br>这里<strong>需要注意</strong>两点：</p>
+<ol>
+<li><p>填写海报高度，这个可以根据自己制作海报的高度来定。比如，我这个海报的高度是557px，那么就填写557px；如果是600px，那么就填写600px。</p>
+</li>
+<li><p>left: -485px或者-675px。这应该选那个呢？这要看自定义模块的宽度。如果你用<strong>950模块</strong>，那么就填写-485px； 如果是<strong>750模块</strong>，就填写-675px。</p>
+</li>
+</ol>
+<h2 id="第五步，上传代码，实现全屏海报"><a href="#第五步，上传代码，实现全屏海报" class="headerlink" title="第五步，上传代码，实现全屏海报"></a>第五步，上传代码，实现全屏海报</h2><p>进入店铺装修，点击在模块右上角的设置，直接在点击左上角编辑源代码或者勾选右下角的编辑源代码。把复制的代码直接粘贴。（记得，填写好里面要注意的内容）接着，保存、发布站点。就可以看到全屏海报。<br>&lt;% asset_img ok.JPG 实现全屏 %&gt;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">淘宝</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-淘宝基础版全屏店招制作" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,7 +409,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 bowerchen
+    		&copy; 2019 bowerchen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -410,6 +497,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">淘宝店招 css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">淘宝</a>
               </li>
             
             <div class="clearfix"></div>
