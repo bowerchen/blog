@@ -6,26 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>淘宝店铺如何实现全屏代码 | Hexo</title>
+  <title>淘宝天猫店铺代码特效系列--旋转木马 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解： 第一步，先准备好1920px宽的海报。海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。 第二步，上传到网店图片空间 第三步，进入pc店铺装修，并放置950或者750自定义模块 第四步，直接copy下面代码将图片地址改成上传网店图片的地址123">
-<meta name="keywords" content="淘宝">
+  <meta name="description" content="今天就跟大家分享下： 如何用代码制作店铺首页的轮播图–即旋转木马首先，先说明下淘宝天猫会屏蔽js，以及部分css代码。如果想制作特效的话，还得依靠它们提供的组件。 如果想要获取组件的框架代码，请点击这里查看 那么，下面就开始正式讲解 首先，看看旋转木马组件的最简单的代码结构： 12345678910111213141516171819202122232425262728293031&amp;lt;div">
+<meta name="keywords" content="淘宝天猫 代码特效">
 <meta property="og:type" content="article">
-<meta property="og:title" content="淘宝店铺如何实现全屏代码">
-<meta property="og:url" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/index.html">
+<meta property="og:title" content="淘宝天猫店铺代码特效系列--旋转木马">
+<meta property="og:url" content="http://yoursite.com/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解： 第一步，先准备好1920px宽的海报。海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。 第二步，上传到网店图片空间 第三步，进入pc店铺装修，并放置950或者750自定义模块 第四步，直接copy下面代码将图片地址改成上传网店图片的地址123">
+<meta property="og:description" content="今天就跟大家分享下： 如何用代码制作店铺首页的轮播图–即旋转木马首先，先说明下淘宝天猫会屏蔽js，以及部分css代码。如果想制作特效的话，还得依靠它们提供的组件。 如果想要获取组件的框架代码，请点击这里查看 那么，下面就开始正式讲解 首先，看看旋转木马组件的最简单的代码结构： 12345678910111213141516171819202122232425262728293031&amp;lt;div">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/upload.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/model.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/code.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/ok.JPG">
-<meta property="og:updated_time" content="2019-01-11T14:11:00.627Z">
+<meta property="og:updated_time" content="2019-01-11T14:17:03.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="淘宝店铺如何实现全屏代码">
-<meta name="twitter:description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解： 第一步，先准备好1920px宽的海报。海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。 第二步，上传到网店图片空间 第三步，进入pc店铺装修，并放置950或者750自定义模块 第四步，直接copy下面代码将图片地址改成上传网店图片的地址123">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG">
+<meta name="twitter:title" content="淘宝天猫店铺代码特效系列--旋转木马">
+<meta name="twitter:description" content="今天就跟大家分享下： 如何用代码制作店铺首页的轮播图–即旋转木马首先，先说明下淘宝天猫会屏蔽js，以及部分css代码。如果想制作特效的话，还得依靠它们提供的组件。 如果想要获取组件的框架代码，请点击这里查看 那么，下面就开始正式讲解 首先，看看旋转木马组件的最简单的代码结构： 12345678910111213141516171819202122232425262728293031&amp;lt;div">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -153,42 +147,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="posts-淘宝基础版店铺如何实现全屏代码" class="article article-type-posts " itemscope="" itemprop="blogPost">
+            <article id="posts-淘宝天猫店铺代码特效系列-旋转木马" class="article article-type-posts " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      淘宝店铺如何实现全屏代码
+      淘宝天猫店铺代码特效系列--旋转木马
     </h1>
   
 
         
-        <a href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/" class="archive-article-date">
-  	<time datetime="2019-01-01T12:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
+        <a href="/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/" class="archive-article-date">
+  	<time datetime="2019-01-07T14:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="淘宝店铺简单实现全屏代码"><a href="#淘宝店铺简单实现全屏代码" class="headerlink" title="淘宝店铺简单实现全屏代码"></a>淘宝店铺简单实现全屏代码</h1><p>在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。</p>
-<p>下面，我一一讲解：</p>
-<h2 id="第一步，先准备好1920px宽的海报。"><a href="#第一步，先准备好1920px宽的海报。" class="headerlink" title="第一步，先准备好1920px宽的海报。"></a>第一步，先准备好1920px宽的海报。</h2><p>海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。<br><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG"></p>
-<h2 id="第二步，上传到网店图片空间"><a href="#第二步，上传到网店图片空间" class="headerlink" title="第二步，上传到网店图片空间"></a>第二步，上传到网店图片空间</h2><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/upload.JPG">
-<h2 id="第三步，进入pc店铺装修，并放置950或者750自定义模块"><a href="#第三步，进入pc店铺装修，并放置950或者750自定义模块" class="headerlink" title="第三步，进入pc店铺装修，并放置950或者750自定义模块"></a>第三步，进入pc店铺装修，并放置950或者750自定义模块</h2><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/model.JPG">
-<h2 id="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"><a href="#第四步，直接copy下面代码将图片地址改成上传网店图片的地址" class="headerlink" title="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"></a>第四步，直接copy下面代码将图片地址改成上传网店图片的地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;height:海报高度&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;footer-more-trigger&quot; style=&quot;width: 1px; height: 1px; padding:0;border:0;line-height:0;left:auto; top:auto&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;footer-more-trigger&quot; style=&quot;width: 1920px; height: 海报高度; padding:0;border:0;line-height:0;left: -485px或者-675px; top:auto&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;图片地址&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/code.JPG">
-<p>这里<strong>需要注意</strong>两点：</p>
+        <p>今天就跟大家分享下：</p>
+<h1 id="如何用代码制作店铺首页的轮播图–即旋转木马"><a href="#如何用代码制作店铺首页的轮播图–即旋转木马" class="headerlink" title="如何用代码制作店铺首页的轮播图–即旋转木马"></a>如何用代码制作店铺首页的轮播图–即旋转木马</h1><p>首先，先说明下淘宝天猫会屏蔽js，以及部分css代码。如果想制作特效的话，还得依靠它们提供的组件。</p>
+<p>如果想要获取组件的框架代码，请<a href="http://open.taobao.com/doc.htm?spm=a219a.7386797.0.0.22352cbfaNuhgH&amp;source=search&amp;docId=102541&amp;docType=1" target="_blank" rel="noopener">点击这里查看</a></p>
+<p>那么，下面就开始正式讲解</p>
+<p>首先，看看旋转木马组件的最简单的代码结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div  class=&quot;J_TWidget&quot;  data-widget-type=&quot;Carousel&quot; data-widget-config=&quot;&#123;</span><br><span class="line">    &apos;autoplay&apos;: &apos;true&apos;,</span><br><span class="line">    &apos;effect&apos;: &apos;scrollx&apos;,</span><br><span class="line">    &apos;navCls&apos;: &apos;imgList&apos;,</span><br><span class="line">    &apos;contentCls&apos;: &apos;images&apos;,</span><br><span class="line">    &apos;prevBtnCls&apos;: &apos;prev&apos;,</span><br><span class="line">    &apos;nextBtnCls&apos;: &apos;next&apos;,</span><br><span class="line">&#125;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    // 下面表示上、下一张图片的按钮</span><br><span class="line">    &lt;span class=&quot;prev&quot;&gt;上一张&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;next&quot;&gt;下一张&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div&gt;</span><br><span class="line"></span><br><span class="line">        // 这个就是用放置图片的div</span><br><span class="line">        &lt;div class=&quot;images&quot;&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        // 这个是控制相对应图片的导航</span><br><span class="line">        &lt;ul class=&quot;imgList&quot;&gt;</span><br><span class="line">            &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <ol>
-<li><p>填写海报高度，这个可以根据自己制作海报的高度来定。比如，我这个海报的高度是557px，那么就填写557px；如果是600px，那么就填写600px。</p>
-</li>
-<li><p>left: -485px或者-675px。这应该选那个呢？这要看自定义模块的宽度。如果你用<strong>950模块</strong>，那么就填写-485px； 如果是<strong>750模块</strong>，就填写-675px。</p>
+<li>下面这段代码主要用来激活组件，需要配合调用方法，也就是设置组件参数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;J_Twidget&quot; data-widget-type=&quot;... &quot; data-widget-config=&quot;&#123;...&#125;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>常用参数主要有：</p>
+<p>(1) autoplay: true;  这个<strong>必须要有</strong>，否则图片就不能滚动</p>
+<p>(2) effect: 动画效果，也就是图片滚动方式。主要有以下四个值：</p>
+<p> – none: 最简单的转换效果</p>
+<p> – fade: 渐隐渐显的效果</p>
+<p> – scrollx: 水平滚动</p>
+<p> – scrolly: 垂直滚动</p>
+<p>可以根据需求来选择滚动方式</p>
+<p> (3) navCls: 自定义图片导航class名</p>
+<p> (4) contentCls: 自定义图片列表class名</p>
+<p> (5) prevBtnCls: 自定义上一张class名</p>
+<p> (6) nextBtnCls: 自定义下一张class名</p>
+<p> 由于参数太多，无法一一说明，感兴趣的同学，可以<a href="http://open.taobao.com/doc.htm?spm=a219a.7386797.0.0.22352cbfaNuhgH&amp;source=search&amp;docId=102541&amp;docType=1" target="_blank" rel="noopener">点击这里</a>，进入平台上了解所有参数</p>
+<p> 要记得在相应的DOM结构加入这些定义好的class名</p>
+<ol start="2">
+<li>根据前面的代码结构,那我们在哪里放置图片呢?请看下面代码:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;images&quot;&gt;</span><br><span class="line">    &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">    &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">    &lt;img alt=&quot;&quot; src=&quot;放置图片地址链接&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只需要根据提示放置图片地址链接即可.</p>
+</blockquote>
+<p>(要记得添加参数设置里定义好的图片列表class名。比如前面定义images,那么这里就填写class=”images”,其他自定义class名亦是如此)</p>
+<ol start="3">
+<li>至于下面这段代码就是用来控制图片的，也叫图片导航,看下面代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;imgList&quot;&gt;</span><br><span class="line">    &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;?&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="第五步，上传代码，实现全屏海报"><a href="#第五步，上传代码，实现全屏海报" class="headerlink" title="第五步，上传代码，实现全屏海报"></a>第五步，上传代码，实现全屏海报</h2><p>进入店铺装修，点击在模块右上角的设置，直接在点击左上角编辑源代码或者勾选右下角的编辑源代码。把复制的代码直接粘贴。（记得，填写好里面要注意的内容）接着，保存、发布站点。就可以看到全屏海报。<br><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/ok.JPG"></p>
-<p>以上均测试有效，如果有其他问题，可以添加微信:bowerchen1112</p>
+<blockquote>
+<p>有多少张图片，这里要有多少个li</p>
+</blockquote>
+<p>好了，一一剖析了代码结构。相信大家已经了解这代码结构的作用。如果还不是很清晰，请重新再细看一遍</p>
+<p>那么，下面开始制作全屏轮播海报吧！</p>
+<p>我事先已经准备好三张海报，并已经上传到淘宝图片空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;J_TWidget&quot; data-widget-type=&quot;Carousel&quot; data-widget-config=&quot;&#123;</span><br><span class="line">    &apos;effect&apos;: &apos;scrolly&apos;,</span><br><span class="line">    &apos;navCls&apos;: &apos;imgList&apos;,</span><br><span class="line">    &apos;contentCls&apos;: &apos;images&apos;,</span><br><span class="line">    &apos;prevBtnCls&apos;: &apos;prev&apos;,</span><br><span class="line">    &apos;nextBtnCls&apos;: &apos;next&apos;,</span><br><span class="line">    &apos;autoplay&apos;: true</span><br><span class="line">&#125;&quot; style=&quot;position:relative;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;span class=&quot;prev&quot;&gt;&amp;lt;&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;next&quot;&gt;&amp;gt;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div style=&quot;overflow:hidden; width: 950px; height: 600px;&quot; &gt;</span><br><span class="line">        &lt;div class=&quot;images&quot;&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">            &lt;img alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;ul class=&quot;imgList&quot;&gt;</span><br><span class="line">            &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;01&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;02&lt;/li&gt;</span><br><span class="line">            &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;03&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>将代码放入950自定义模块中，发现它不会全屏显示，这是为什么呢？</p>
+<p>这，就需要加入全屏代码了，然后用它来包裹上面的轮播代码；接着，海报就会全屏显示了</p>
+<p>如果不知道全屏代码，可以<a href="https://bowerchen.github.io/2019/01/01/%E6%B7%98%E5%AE%9D%E5%9F%BA%E7%A1%80%E7%89%88%E5%BA%97%E9%93%BA%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%8F%E4%BB%A3%E7%A0%81/" target="_blank" rel="noopener">点击这里</a>查看</p>
+<p>加入全屏代码后，全部代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width: 1920px;height:600px&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;footer-more-trigger&quot; style=&quot;width: 1px; height: 1px; padding:0;border:0;line-height:0;left:0; top:0&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;footer-more-trigger&quot; style=&quot;width: 1920px; height: 600px; padding:0;border:0;line-height:0;left: -485px; top:0&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;J_TWidget&quot; data-widget-type=&quot;Carousel&quot; data-widget-config=&quot;&#123;</span><br><span class="line">                &apos;effect&apos;: &apos;scrolly&apos;,</span><br><span class="line">                &apos;navCls&apos;: &apos;imgList&apos;,</span><br><span class="line">                &apos;contentCls&apos;: &apos;images&apos;,</span><br><span class="line">                &apos;prevBtnCls&apos;: &apos;prev&apos;,</span><br><span class="line">                &apos;nextBtnCls&apos;: &apos;next&apos;,</span><br><span class="line">                &apos;autoplay&apos;: true</span><br><span class="line">            &#125;&quot; style=&quot;position:relative;&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &lt;span class=&quot;prev&quot;&gt;&amp;lt;&lt;/span&gt;</span><br><span class="line">                &lt;span class=&quot;next&quot;&gt;&amp;gt;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div style=&quot;overflow:hidden; width: 1920px; height: 600px;&quot; &gt;</span><br><span class="line">                    &lt;div class=&quot;images&quot; style=&quot;width: 1920px; height: 600px&quot;&gt;</span><br><span class="line">                        &lt;img style=&quot;width: 1920px; height: 600px;&quot; alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">                        &lt;img style=&quot;width: 1920px; height: 600px;&quot; alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">                        &lt;img style=&quot;width: 1920px; height: 600px;&quot; alt=&quot;&quot; src=&quot;图片地址&quot;/&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;ul class=&quot;imgList&quot;&gt;</span><br><span class="line">                        &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;01&lt;/li&gt;</span><br><span class="line">                        &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;02&lt;/li&gt;</span><br><span class="line">                        &lt;li style=&quot;border-radius:50%;background: #000; color: #fff; width: 20px; height: 20px&quot;&gt;03&lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>将图片地址修改下，然后放在自定义模块代码编辑模式里，点击发布后就可以看到全屏海报了</p>
+<p>好了，今天的分享就到这！</p>
+<p>以上代码均测试过，如果有其它问题，可以加我微信：bowerchen1112</p>
 
       
 
@@ -233,7 +262,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">淘宝</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">淘宝天猫 代码特效</a>
         		</li>
       		
 		</ul>
@@ -289,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          淘宝天猫店铺代码特效系列--旋转木马
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/20/淘宝基础版全屏店招制作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">淘宝基础版全屏店招制作</div>
+    <a href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">淘宝店铺如何实现全屏代码</div>
       <i class="icon-circle-right"></i>
     </a>
   
