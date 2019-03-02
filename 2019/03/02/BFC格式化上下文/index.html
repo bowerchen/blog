@@ -8,21 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>深入理解BFC--块级格式化上下文 | 前端开发学习 || 一名前端程序猿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
+  <meta name="description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的元">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解BFC--块级格式化上下文">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/BFC格式化上下文/index.html">
 <meta property="og:site_name" content="前端开发学习 || 一名前端程序猿">
-<meta property="og:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
+<meta property="og:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的元">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/3.png">
-<meta property="og:updated_time" content="2019-03-02T12:26:02.488Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/4.png">
+<meta property="og:updated_time" content="2019-03-02T12:31:31.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解BFC--块级格式化上下文">
-<meta name="twitter:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
+<meta name="twitter:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的元">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/1.png">
   
     <link rel="alternative" href="/atom.xml" title="前端开发学习 || 一名前端程序猿" type="application/atom+xml">
@@ -184,15 +185,13 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念</p>
-<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><hr>
-<h3 id="BOX"><a href="#BOX" class="headerlink" title="BOX"></a>BOX</h3><p><code>Box</code>是css布局的<strong>对象和基本单位</strong>，网页都由多个<code>Box</code>来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型：</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="BOX"><a href="#BOX" class="headerlink" title="BOX"></a>BOX</h3><p><code>Box</code>是css布局的<strong>对象和基本单位</strong>，网页都由多个<code>Box</code>来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型：</p>
 <pre><code>1. block-level box: display属性为block,list-item,table的元素，会生成block level box，并参与Block Formatting Context
 
 2. inline-level box: display属性为inline, inline-block, inline-table的元素，会生成inline level box，并参与Inline Formatting Context
 </code></pre><h3 id="Formatting-Context"><a href="#Formatting-Context" class="headerlink" title="Formatting Context"></a>Formatting Context</h3><p>Formatting Context是css2.1规范中的一个概念，它是页面中一块渲染区域，并且有相应的渲染规则，它决定了其子元素的如何布局，与其他元素的关系以及相互作用。其中，最常见的Formatting Context有BFC(Block Formatting Context)和IFC(Inline Formatting Context)。</p>
 <p>此外，CSS3还另增加了 GFC 和 FFC。</p>
-<h2 id="BFC定义、相关规则"><a href="#BFC定义、相关规则" class="headerlink" title="BFC定义、相关规则"></a>BFC定义、相关规则</h2><hr>
-<p>BFC全称：Block Formatting Context，直译“块级格式化上下文”。它是一个渲染区域，只有Block Level box参与，并且它与外部区域互不干扰。</p>
+<h2 id="BFC定义、相关规则"><a href="#BFC定义、相关规则" class="headerlink" title="BFC定义、相关规则"></a>BFC定义、相关规则</h2><p>BFC全称：Block Formatting Context，直译“块级格式化上下文”。它是一个渲染区域，只有Block Level box参与，并且它与外部区域互不干扰。</p>
 <h3 id="BFC渲染规则"><a href="#BFC渲染规则" class="headerlink" title="BFC渲染规则"></a>BFC渲染规则</h3><ol>
 <li>内部的Box垂直排列</li>
 <li>Box的垂直方向的距离由margin来决定，同一BFC的两个相邻Box的margin会发生重叠</li>
@@ -209,8 +208,7 @@ var _hmt = _hmt || [];
 <li>position: absolute || fixed</li>
 <li>display: inline-block || table-cell || table-caption || flex || inline-flex</li>
 </ol>
-<h2 id="BFC的作用和原理"><a href="#BFC的作用和原理" class="headerlink" title="BFC的作用和原理"></a>BFC的作用和原理</h2><hr>
-<p>接下来，通过几个案例来说明BFC的用途以及原理</p>
+<h2 id="BFC的作用和原理"><a href="#BFC的作用和原理" class="headerlink" title="BFC的作用和原理"></a>BFC的作用和原理</h2><p>接下来，通过几个案例来说明BFC的用途以及原理</p>
 <h3 id="案例一：自适应两栏布局"><a href="#案例一：自适应两栏布局" class="headerlink" title="案例一：自适应两栏布局"></a>案例一：自适应两栏布局</h3><p>代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> dotted orange</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.aside</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f66</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fcc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -224,7 +222,6 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>案例展示：</p>
 <img src="/2019/03/02/BFC格式化上下文/2.png">
-<hr>
 <h3 id="案例二：清除内部浮动"><a href="#案例二：清除内部浮动" class="headerlink" title="案例二：清除内部浮动"></a>案例二：清除内部浮动</h3><p>代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#f66</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">3px</span> solid <span class="number">#fcc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -234,8 +231,7 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样，就完美解决了父元素塌陷问题</p>
 <p>效果如下：</p>
-
-<hr>
+<img src="/2019/03/02/BFC格式化上下文/4.png">
 <h3 id="案例三：防止垂直margin重叠"><a href="#案例三：防止垂直margin重叠" class="headerlink" title="案例三：防止垂直margin重叠"></a>案例三：防止垂直margin重叠</h3><p>代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>something<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>nothing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>打开浏览器开发者工具可以看到，p1和p2的margin发生了重叠。这是因为它们在同一BFC里，根据BFC渲染规则的第二条，即</p>
@@ -246,8 +242,8 @@ var _hmt = _hmt || [];
 <p>代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>something<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>nothing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="案例四："><a href="#案例四：" class="headerlink" title="案例四："></a>案例四：</h3>
+<p>以上就是对BFC的总结，进一步加深对格式化上下文的理解</p>
+
       
 
       
@@ -505,15 +501,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">淘宝店招 css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">淘宝</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">淘宝天猫 代码特效</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">淘宝店招 css</a>
               </li>
             
             <div class="clearfix"></div>
