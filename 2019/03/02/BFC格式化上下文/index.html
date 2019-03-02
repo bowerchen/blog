@@ -6,26 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>淘宝店铺如何实现全屏代码 | 前端开发学习 || 一名前端程序猿</title>
+  <title>深入理解BFC--块级格式化上下文 | 前端开发学习 || 一名前端程序猿</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解：">
-<meta name="keywords" content="淘宝">
+  <meta name="description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="淘宝店铺如何实现全屏代码">
-<meta property="og:url" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/index.html">
+<meta property="og:title" content="深入理解BFC--块级格式化上下文">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/BFC格式化上下文/index.html">
 <meta property="og:site_name" content="前端开发学习 || 一名前端程序猿">
-<meta property="og:description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解：">
+<meta property="og:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/upload.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/model.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/code.JPG">
-<meta property="og:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/ok.JPG">
-<meta property="og:updated_time" content="2019-01-20T06:03:15.642Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/3.png">
+<meta property="og:updated_time" content="2019-03-02T12:26:02.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="淘宝店铺如何实现全屏代码">
-<meta name="twitter:description" content="淘宝店铺简单实现全屏代码在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。 下面，我一一讲解：">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG">
+<meta name="twitter:title" content="深入理解BFC--块级格式化上下文">
+<meta name="twitter:description" content="在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念 相关概念 BOXBox是css布局的对象和基本单位，网页都由多个Box来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型： 1. block-level box: display属性为block,list-item,table的">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/02/BFC格式化上下文/1.png">
   
     <link rel="alternative" href="/atom.xml" title="前端开发学习 || 一名前端程序猿" type="application/atom+xml">
   
@@ -165,44 +163,91 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="posts-淘宝基础版店铺如何实现全屏代码" class="article article-type-posts " itemscope="" itemprop="blogPost">
+            <article id="post-BFC格式化上下文" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      淘宝店铺如何实现全屏代码
+      深入理解BFC--块级格式化上下文
     </h1>
   
 
         
-        <a href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/" class="archive-article-date">
-  	<time datetime="2019-01-01T12:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
+        <a href="/2019/03/02/BFC格式化上下文/" class="archive-article-date">
+  	<time datetime="2019-03-02T10:08:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="淘宝店铺简单实现全屏代码"><a href="#淘宝店铺简单实现全屏代码" class="headerlink" title="淘宝店铺简单实现全屏代码"></a>淘宝店铺简单实现全屏代码</h1><p>在淘宝店铺里，自定义区只有950和750的模块。如果想要实现全屏，还需要通过代码来实现它。</p>
-<p>下面，我一一讲解：</p>
-<a id="more"></a>
-<h2 id="第一步，先准备好1920px宽的海报。"><a href="#第一步，先准备好1920px宽的海报。" class="headerlink" title="第一步，先准备好1920px宽的海报。"></a>第一步，先准备好1920px宽的海报。</h2><p>海报制作根据自己的需求来。这个过程我就省略了，我事先已经准备好海报了。<br><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/banner.JPG"></p>
-<h2 id="第二步，上传到网店图片空间"><a href="#第二步，上传到网店图片空间" class="headerlink" title="第二步，上传到网店图片空间"></a>第二步，上传到网店图片空间</h2><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/upload.JPG">
-<h2 id="第三步，进入pc店铺装修，并放置950或者750自定义模块"><a href="#第三步，进入pc店铺装修，并放置950或者750自定义模块" class="headerlink" title="第三步，进入pc店铺装修，并放置950或者750自定义模块"></a>第三步，进入pc店铺装修，并放置950或者750自定义模块</h2><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/model.JPG">
-<h2 id="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"><a href="#第四步，直接copy下面代码将图片地址改成上传网店图片的地址" class="headerlink" title="第四步，直接copy下面代码将图片地址改成上传网店图片的地址"></a>第四步，直接copy下面代码将图片地址改成上传网店图片的地址</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height:海报高度"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer-more-trigger"</span> <span class="attr">style</span>=<span class="string">"width: 1px; height: 1px; padding:0;border:0;line-height:0;left:auto; top:auto"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer-more-trigger"</span> <span class="attr">style</span>=<span class="string">"width: 1920px; height: 海报高度; padding:0;border:0;line-height:0;left: -485px或者-675px; top:auto"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"图片地址"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/code.JPG">
-<p>这里<strong>需要注意</strong>两点：</p>
-<ol>
-<li><p>填写海报高度，这个可以根据自己制作海报的高度来定。比如，我这个海报的高度是557px，那么就填写557px；如果是600px，那么就填写600px。</p>
-</li>
-<li><p>left: -485px或者-675px。这应该选那个呢？这要看自定义模块的宽度。如果你用<strong>950模块</strong>，那么就填写-485px； 如果是<strong>750模块</strong>，就填写-675px。</p>
-</li>
-</ol>
-<h2 id="第五步，上传代码，实现全屏海报"><a href="#第五步，上传代码，实现全屏海报" class="headerlink" title="第五步，上传代码，实现全屏海报"></a>第五步，上传代码，实现全屏海报</h2><p>进入店铺装修，点击在模块右上角的设置，直接在点击左上角编辑源代码或者勾选右下角的编辑源代码。把复制的代码直接粘贴。（记得，填写好里面要注意的内容）接着，保存、发布站点。就可以看到全屏海报。<br><img src="/2019/01/01/淘宝基础版店铺如何实现全屏代码/ok.JPG"></p>
-<p>以上均测试有效，如果有其他问题，可以添加微信:bowerchen1112</p>
+        <p>在讲解BFC之前，我们需了解Box，以及Formatting Context的相关概念</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><hr>
+<h3 id="BOX"><a href="#BOX" class="headerlink" title="BOX"></a>BOX</h3><p><code>Box</code>是css布局的<strong>对象和基本单位</strong>，网页都由多个<code>Box</code>来组成。Box有多种类型，它的类型由元素类型和display属性来决定，因此Box内的元素会以不同的方式的渲染。来看看Box有哪些类型：</p>
+<pre><code>1. block-level box: display属性为block,list-item,table的元素，会生成block level box，并参与Block Formatting Context
 
+2. inline-level box: display属性为inline, inline-block, inline-table的元素，会生成inline level box，并参与Inline Formatting Context
+</code></pre><h3 id="Formatting-Context"><a href="#Formatting-Context" class="headerlink" title="Formatting Context"></a>Formatting Context</h3><p>Formatting Context是css2.1规范中的一个概念，它是页面中一块渲染区域，并且有相应的渲染规则，它决定了其子元素的如何布局，与其他元素的关系以及相互作用。其中，最常见的Formatting Context有BFC(Block Formatting Context)和IFC(Inline Formatting Context)。</p>
+<p>此外，CSS3还另增加了 GFC 和 FFC。</p>
+<h2 id="BFC定义、相关规则"><a href="#BFC定义、相关规则" class="headerlink" title="BFC定义、相关规则"></a>BFC定义、相关规则</h2><hr>
+<p>BFC全称：Block Formatting Context，直译“块级格式化上下文”。它是一个渲染区域，只有Block Level box参与，并且它与外部区域互不干扰。</p>
+<h3 id="BFC渲染规则"><a href="#BFC渲染规则" class="headerlink" title="BFC渲染规则"></a>BFC渲染规则</h3><ol>
+<li>内部的Box垂直排列</li>
+<li>Box的垂直方向的距离由margin来决定，同一BFC的两个相邻Box的margin会发生重叠</li>
+<li>每个元素的margin box的左边，与包含块的border box的左边相接触，对于存在浮动的元素也是如此。</li>
+<li>BFC的区域不会与float box发生重叠</li>
+<li>BFC就是页面上一个独立的容器，容器内子元素无法干扰外部元素，外部元素也无法作用域容器内子元素</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h3 id="BFC触发"><a href="#BFC触发" class="headerlink" title="BFC触发"></a>BFC触发</h3><p><strong>以下几种情况会触发BFC</strong></p>
+<ol>
+<li>根元素（html）</li>
+<li>overflow不为visible的值</li>
+<li>float不为none的值</li>
+<li>position: absolute || fixed</li>
+<li>display: inline-block || table-cell || table-caption || flex || inline-flex</li>
+</ol>
+<h2 id="BFC的作用和原理"><a href="#BFC的作用和原理" class="headerlink" title="BFC的作用和原理"></a>BFC的作用和原理</h2><hr>
+<p>接下来，通过几个案例来说明BFC的用途以及原理</p>
+<h3 id="案例一：自适应两栏布局"><a href="#案例一：自适应两栏布局" class="headerlink" title="案例一：自适应两栏布局"></a>案例一：自适应两栏布局</h3><p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> dotted orange</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.aside</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f66</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fcc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>案例展示:</p>
+<img src="/2019/03/02/BFC格式化上下文/1.png">
+<p>该案例符合渲染规则的第三条，即</p>
+<blockquote>
+<p>Box的margin box的左边与包含块的border box的左边相接触，即浮动元素也是如此</p>
+</blockquote>
+<p>在这里, 若想 <code>aside</code> 与 <code>main</code> 不发生重叠的情况，给 <code>main</code> 创建新的BFC</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>案例展示：</p>
+<img src="/2019/03/02/BFC格式化上下文/2.png">
+<hr>
+<h3 id="案例二：清除内部浮动"><a href="#案例二：清除内部浮动" class="headerlink" title="案例二：清除内部浮动"></a>案例二：清除内部浮动</h3><p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#f66</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">3px</span> solid <span class="number">#fcc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>页面如下：</p>
+<img src="/2019/03/02/BFC格式化上下文/3.png">
+<p>由于父元素没有设置高度，两个子元素设置了浮动，导致父元素塌陷。这时，我们需要清除内部浮动，可以在父元素创建一个BFC。代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，就完美解决了父元素塌陷问题</p>
+<p>效果如下：</p>
+
+<hr>
+<h3 id="案例三：防止垂直margin重叠"><a href="#案例三：防止垂直margin重叠" class="headerlink" title="案例三：防止垂直margin重叠"></a>案例三：防止垂直margin重叠</h3><p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>something<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>nothing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>打开浏览器开发者工具可以看到，p1和p2的margin发生了重叠。这是因为它们在同一BFC里，根据BFC渲染规则的第二条，即</p>
+<blockquote>
+<p>Box的垂直方向的距离由margin来决定，同一BFC的两个相邻Box的margin会发生重叠</p>
+</blockquote>
+<p>想要正常渲染出来，可以给子元素包裹一层容器，并重新发生BFC，那么这两个子元素就不属于同一BFC，就不会发生margin重叠了</p>
+<p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>something<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>nothing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="案例四："><a href="#案例四：" class="headerlink" title="案例四："></a>案例四：</h3>
       
 
       
@@ -246,7 +291,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">淘宝</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -302,7 +347,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/01/淘宝基础版店铺如何实现全屏代码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/02/BFC格式化上下文/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +361,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          淘宝天猫店铺代码特效系列--旋转木马
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/20/淘宝基础版全屏店招制作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">淘宝基础版全屏店招制作</div>
+    <a href="/2019/01/07/淘宝天猫店铺代码特效系列-旋转木马/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">淘宝天猫店铺代码特效系列--旋转木马</div>
       <i class="icon-circle-right"></i>
     </a>
   
