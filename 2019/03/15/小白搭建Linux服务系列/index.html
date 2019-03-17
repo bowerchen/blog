@@ -22,7 +22,7 @@
     
     <title>
     
-        FLIP动画原理 - 前端开发学习 || 一名前端程序猿
+        小白搭建Linux服务器系列--前期准备工作 - 前端开发学习 || 一名前端程序猿
     
     </title>
     <meta name="keywords" content="Web前端 html">
@@ -99,22 +99,22 @@
 <article class="main-content page-page" itemscope itemtype="http://schema.org/Article">
 	<div class="post-header">
 		<h1 class="post-title" itemprop="name headline">
-			FLIP动画原理
+			小白搭建Linux服务器系列--前期准备工作
 		</h1>
 		<div class="post-data">
 			
-			<span id="/2019/03/03/FLIP动画原理/" class="leancloud-visitors" data-flag-title="FLIP动画原理">
+			<span id="/2019/03/15/小白搭建Linux服务系列/" class="leancloud-visitors" data-flag-title="小白搭建Linux服务器系列--前期准备工作">
 				<span class="leancloud-visitors-count">0</span> Views 
 			</span>
 			
-            <time datetime="1551607090" itemprop="datePublished">Published on Mar 03, 2019</time>
+            <time datetime="1552623757" itemprop="datePublished">Published on Mar 15, 2019</time>
 			
 			with <a id="page-title-comment" href="#vcomments"></a>
 			
 			<div style="font-size: 13px;">
-				<span class="post-count">本文字数：0 字</span>
+				<span class="post-count">本文字数：826 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 1 min</span>
+				<span class="post-count">阅读时长 ≈ 3 min</span>
 			</div>
 		</div>
 	</div>
@@ -122,11 +122,87 @@
 		<p class="post-tags">
             
             
-            <a href="/tags/css-JavaScript/">css JavaScript</a>
+            <a href="/tags/linux/">linux</a>
             
             
         </p>
-		
+		<p><strong>本文分享如何从零开始搭建Linux服务器</strong></p>
+<h2 id="前期准备工作"><a href="#前期准备工作" class="headerlink" title="前期准备工作"></a>前期准备工作</h2><ul>
+<li>域名解析</li>
+<li>linux服务器安装nginx</li>
+</ul>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>本文案例在阿里云上购买的域名<br><img src="/2019/03/15/小白搭建Linux服务系列/yuming.png"></p>
+<p>后续跟着步骤走就行了</p>
+<h3 id="域名解析-1"><a href="#域名解析-1" class="headerlink" title="域名解析"></a>域名解析</h3><p>在 <code>控制台-&gt;域名-&gt;解析</code><br><img src="/2019/03/15/小白搭建Linux服务系列/jiexi.png"></p>
+<p>点开之后，接着 <code>添加记录</code><br><img src="/2019/03/15/小白搭建Linux服务系列/add.png"></p>
+<p>打开之后会有以下几个选项<br><img src="/2019/03/15/小白搭建Linux服务系列/jilu.png"></p>
+<p>记录类型<strong>常用</strong>主要有两种：</p>
+<ul>
+<li>A: 指向服务器的IP地址</li>
+<li>CNAME: 指向其他域名</li>
+</ul>
+<p>主机记录：可添加www或者不填也行（一般记录两条信息，其中之一填www，另一个不填； 这样无论在域名前面加www都能正常访问 ）</p>
+<p>记录值： 当你用 <code>A</code> 记录类型的，应当填服务器外网IP地址；使用 <code>CNAME</code> 记录类型，填写域名地址</p>
+<p>添加完之后，一般等待十分钟后就能正常访问了</p>
+<h2 id="Linux服务器安装nginx"><a href="#Linux服务器安装nginx" class="headerlink" title="Linux服务器安装nginx"></a>Linux服务器安装nginx</h2><p>本文示例云服务器：阿里云9.9元/月学生机</p>
+<ul>
+<li>系统：centOS7.x</li>
+</ul>
+<blockquote>
+<p>本文是基于centOS安装，不同的服务器的安装方式是不一样哦</p>
+</blockquote>
+<h3 id="nginx安装准备"><a href="#nginx安装准备" class="headerlink" title="nginx安装准备"></a>nginx安装准备</h3><p>接下来在安装nginx前，先安装好编译环境，以及工具</p>
+<h4 id="安装make"><a href="#安装make" class="headerlink" title="安装make"></a>安装make</h4><p><code>yum -y install gcc automake autoconf libtool make</code></p>
+<h4 id="安装g"><a href="#安装g" class="headerlink" title="安装g++"></a>安装g++</h4><p><code>yum install gcc gcc-c++</code></p>
+<p>编译环境已经安装完成，下面将会安装一些库，一般都会安装在<br><code>/usr/local/src</code></p>
+<p>进入当前目录<br><code>cd /usr/local/src</code></p>
+<h4 id="安装PCRE库"><a href="#安装PCRE库" class="headerlink" title="安装PCRE库"></a>安装PCRE库</h4><p><code>wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.31.tar.gz</code></p>
+<p>目前最新版本是10.31，如果想查看最新版本可以点击<a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/" target="_blank" rel="noopener">这里</a></p>
+<p>只需将安装包名替换掉就可以了</p>
+<p>接着，解压并安装pcre</p>
+<pre><code>(每一行对应一条指令)
+tar -zxcf pcre2-10.31.tar.gz
+cd pcre2-10.31
+./configure
+make
+make install
+</code></pre><h4 id="安装zlib库"><a href="#安装zlib库" class="headerlink" title="安装zlib库"></a>安装zlib库</h4><p><code>wget http://zlib.net/zlib-1.2.11.tar.gz</code></p>
+<p>可以查看<a href="http://zlib.net" target="_blank" rel="noopener">最新版本</a></p>
+<p>解压安装</p>
+<pre><code>tar -zxvf zlib-1.2.11.tar.gz
+cd zlib-1.2.11
+./configure
+make
+make install
+</code></pre><h4 id="安装ssl"><a href="#安装ssl" class="headerlink" title="安装ssl"></a>安装ssl</h4><pre><code>wget https://www.openssl.org/source/openssl-1.1.1b.tar.gz
+tar -zxvf openssl-1.1.1b.tar.gz
+</code></pre><p>好了，到了这里， 我们开始进入主题吧</p>
+<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><h4 id="安装repository管理及扩展包的工具"><a href="#安装repository管理及扩展包的工具" class="headerlink" title="安装repository管理及扩展包的工具"></a>安装repository管理及扩展包的工具</h4><pre><code>yum install yum-utils
+</code></pre><h4 id="创建一个文件，并把下面内容填进去"><a href="#创建一个文件，并把下面内容填进去" class="headerlink" title="创建一个文件，并把下面内容填进去"></a>创建一个文件，并把下面内容填进去</h4><pre><code>vim /etc/yum.repos.d/nginx.repo
+</code></pre><blockquote>
+<p>[nginx-stable]<br>name=nginx stable repo<br>baseurl=<a href="http://nginx.org/packages/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/centos/$releasever/$basearch/</a><br>gpgcheck=1<br>enabled=1<br>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a><br>[nginx-mainline]<br>name=nginx mainline repo<br>baseurl=<a href="http://nginx.org/packages/mainline/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/centos/$releasever/$basearch/</a><br>gpgcheck=1<br>enabled=0<br>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a></p>
+</blockquote>
+<h4 id="如果想使用主线版的nginx，请输入下面命令"><a href="#如果想使用主线版的nginx，请输入下面命令" class="headerlink" title="如果想使用主线版的nginx，请输入下面命令"></a>如果想使用主线版的nginx，请输入下面命令</h4><pre><code>sudo yum-config-manager --enable nginx-mainline
+</code></pre><h4 id="下面就开始安装nginx"><a href="#下面就开始安装nginx" class="headerlink" title="下面就开始安装nginx"></a>下面就开始安装nginx</h4><pre><code>yum install nginx
+</code></pre><p>过几分钟后，在浏览器输入<a href="http://IP就可以访问了" target="_blank" rel="noopener">http://IP就可以访问了</a></p>
+<h4 id="介绍几个有关nginx常用的命令"><a href="#介绍几个有关nginx常用的命令" class="headerlink" title="介绍几个有关nginx常用的命令"></a>介绍几个有关nginx常用的命令</h4><pre><code>whereis nginx // 查看目录结构
+
+nestat -ntpl | grep 80 // 查看端口号是否占用
+
+nginx  // 启动服务器
+
+nginx -s stop  // 关闭服务器
+
+nginx -s reload  // 重启服务器
+
+nginx -s /etc/nginx/nginx.conf  // 使用指定的配置文件启动
+
+nginx -v  // 查看版本信息
+
+nginx -t // 测试配置文件是否有错误
+</code></pre><p>这种是使用预编译安装包的安装方法。还有另一种是源码安装包，感兴趣的同学可以查看下面的链接</p>
+<p>参考链接：<br><a href="https://www.cnblogs.com/t-road/p/6732805.html" target="_blank" rel="noopener">https://www.cnblogs.com/t-road/p/6732805.html</a><br><a href="http://nginx.org/en/linux_packages.html#RHEL-CentOS" target="_blank" rel="noopener">http://nginx.org/en/linux_packages.html#RHEL-CentOS</a></p>
+
 		
 		<div style="text-align: center; margin: 20px 0;">
 			<p>如果我的文章对你有很大帮助，那么不妨</p>
@@ -145,7 +221,7 @@
 		
 		
 		<p class="post-info">
-			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Mar 03, 2019 06:06 pm
+			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Mar 17, 2019 07:08 pm
 		</p>
 	</div>
 </article>
@@ -153,17 +229,17 @@
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
 			<span class="bottom-bar-item">Share : </span>
-			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/03/FLIP动画原理/index.html" target="_blank" title="FLIP动画原理" rel="nofollow">facebook</a></span>
-			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2019/03/03/FLIP动画原理/&text=FLIP动画原理" target="_blank" title="FLIP动画原理" rel="nofollow">Twitter</a></span>
-			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=FLIP动画原理" target="_blank" title="FLIP动画原理" rel="nofollow">Weibo</a></span>
-			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2019/03/03/FLIP动画原理/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/15/小白搭建Linux服务系列/index.html" target="_blank" title="小白搭建Linux服务器系列--前期准备工作" rel="nofollow">facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2019/03/15/小白搭建Linux服务系列/&text=小白搭建Linux服务器系列--前期准备工作" target="_blank" title="小白搭建Linux服务器系列--前期准备工作" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=小白搭建Linux服务器系列--前期准备工作" target="_blank" title="小白搭建Linux服务器系列--前期准备工作" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2019/03/15/小白搭建Linux服务系列/index.html" target="_blank" rel="nofollow">QRcode</a></span>
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/03/15/小白搭建Linux服务系列/">←</a></span>
+            <span class="bottom-bar-item"><a href="/2019/03/16/Linux服务器更新Node/">←</a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/03/02/BFC格式化上下文/">→</a></span>
+            <span class="bottom-bar-item"><a href="/2019/03/03/FLIP动画原理/">→</a></span>
             
 			<span class="bottom-bar-item"><a href="#footer">↓</a></span>
 			<span class="bottom-bar-item"><a href="#">↑</a></span>
@@ -444,7 +520,7 @@ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 // 获取文章评论数
 var query1 = new AV.Query('Comment');
-query1.equalTo('url', '/2019/03/03/FLIP动画原理/');
+query1.equalTo('url', '/2019/03/15/小白搭建Linux服务系列/');
 query1.doesNotExist('pid');
 query1.count().then(function (count) {
     document.getElementById('page-title-comment').innerText = count + ' comment';

@@ -22,7 +22,7 @@
     
     <title>
     
-        FLIP动画原理 - 前端开发学习 || 一名前端程序猿
+        Linux服务器更新Node - 前端开发学习 || 一名前端程序猿
     
     </title>
     <meta name="keywords" content="Web前端 html">
@@ -99,22 +99,22 @@
 <article class="main-content page-page" itemscope itemtype="http://schema.org/Article">
 	<div class="post-header">
 		<h1 class="post-title" itemprop="name headline">
-			FLIP动画原理
+			Linux服务器更新Node
 		</h1>
 		<div class="post-data">
 			
-			<span id="/2019/03/03/FLIP动画原理/" class="leancloud-visitors" data-flag-title="FLIP动画原理">
+			<span id="/2019/03/16/Linux服务器更新Node/" class="leancloud-visitors" data-flag-title="Linux服务器更新Node">
 				<span class="leancloud-visitors-count">0</span> Views 
 			</span>
 			
-            <time datetime="1551607090" itemprop="datePublished">Published on Mar 03, 2019</time>
+            <time datetime="1552738433" itemprop="datePublished">Published on Mar 16, 2019</time>
 			
 			with <a id="page-title-comment" href="#vcomments"></a>
 			
 			<div style="font-size: 13px;">
-				<span class="post-count">本文字数：0 字</span>
+				<span class="post-count">本文字数：558 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 1 min</span>
+				<span class="post-count">阅读时长 ≈ 2 min</span>
 			</div>
 		</div>
 	</div>
@@ -122,11 +122,59 @@
 		<p class="post-tags">
             
             
-            <a href="/tags/css-JavaScript/">css JavaScript</a>
+            <a href="/tags/node-Linux/">node Linux</a>
             
             
         </p>
-		
+		<p>最近搞了一台阿里云服务器，我直接安装nodejs应用程序。它默认的安装<strong>node</strong>版本是 <code>4.8.4</code>，而<strong>npm</strong>的版本也才<code>2.5.11</code>(ooh, My god！这也太低了)。而现在<strong>node</strong>的最新版本都11.xx了，不得不说，这也太坑了！</p>
+<p>下面，我会提供几种方法来更新node！</p>
+<h2 id="方法一-下载Node安装包"><a href="#方法一-下载Node安装包" class="headerlink" title="方法一: 下载Node安装包"></a>方法一: 下载Node安装包</h2><p>我一般会选择在淘宝镜像下载，主要是下载速度比较快。下面是淘宝镜像的地址</p>
+<p><a href="https://npm.taobao.org/mirrors/node" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node</a></p>
+<p>我选择最新稳定的版本<code>node-v10.15.3-linux-arm64.tar.gz</code></p>
+<blockquote>
+<p><strong>我一般会将程序安装在<code>/usr/local/src</code>目录下</strong></p>
+</blockquote>
+<p>接着，连接服务器，并进入下载目录</p>
+<pre><code>cd /usr/local/src
+</code></pre><p>下载安装包</p>
+<pre><code>wget https://npm.taobao.org/mirrors/node/latest-v10.x/node-v10.15.3-linux-arm64.tar.gz
+</code></pre><p>解压</p>
+<pre><code>tar -zxvf node-v10.15.3-linux-arm64.tar.gz
+</code></pre><p>更换目录名(不想更换可忽略)</p>
+<pre><code>mv node-v10.15.3-linux-arm64 nodejs
+</code></pre><p>上一步完成之后，还需要创建<strong>软连接</strong></p>
+<pre><code>ln -s /usr/local/src/nodejs/bin/node /usr/local/bin/node
+ln -s /usr/local/src/nodejs/bin/npm /usr/local/bin/npm
+</code></pre><p>如果之前就已经存在Node，那么还需要设置环境变量</p>
+<pre><code>vim /etc/profile
+
+// 在文件最后写上
+PATH=$PATH:/usr/local/src/nodejs/bin
+</code></pre><p>执行生效</p>
+<pre><code>source /etc/profile
+</code></pre><p>执行到这一步，不出意外， <code>node -v</code>已换成新版本</p>
+<h2 id="方法二：使用NVM"><a href="#方法二：使用NVM" class="headerlink" title="方法二：使用NVM"></a>方法二：使用NVM</h2><p>NVM(Node Version Manage)是nodejs的版本管理软件，它最大的特点是可以自由切换nodejs版本</p>
+<p>下面开始演示如何安装</p>
+<p>首先，安装git</p>
+<pre><code>yum install git
+</code></pre><p>接着clone下来</p>
+<pre><code>git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`
+</code></pre><p>然后激活nvm</p>
+<pre><code>echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile
+
+source /etc/profile
+</code></pre><p>查看是否安装成功</p>
+<pre><code>nvm --version
+</code></pre><p>如果安装成功，就可以使用指令来进行操作了。<br>下面给出几个常用的指令</p>
+<pre><code>nvm list-remote  // 列出nodejs所有的版本
+
+nvm install v11.xx.xx  // 安装指定的版本号
+
+nvm ls  // 查看已安装的Node.js版本
+
+nvm use v11.xx.xx  // 切换node.js版本
+</code></pre><p>以上就是Liunx服务器更新安装node.js的方法。如果您还有其他方法，可以留言哦！</p>
+
 		
 		<div style="text-align: center; margin: 20px 0;">
 			<p>如果我的文章对你有很大帮助，那么不妨</p>
@@ -145,7 +193,7 @@
 		
 		
 		<p class="post-info">
-			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Mar 03, 2019 06:06 pm
+			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Mar 17, 2019 02:18 pm
 		</p>
 	</div>
 </article>
@@ -153,17 +201,15 @@
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
 			<span class="bottom-bar-item">Share : </span>
-			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/03/FLIP动画原理/index.html" target="_blank" title="FLIP动画原理" rel="nofollow">facebook</a></span>
-			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2019/03/03/FLIP动画原理/&text=FLIP动画原理" target="_blank" title="FLIP动画原理" rel="nofollow">Twitter</a></span>
-			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=FLIP动画原理" target="_blank" title="FLIP动画原理" rel="nofollow">Weibo</a></span>
-			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2019/03/03/FLIP动画原理/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/16/Linux服务器更新Node/index.html" target="_blank" title="Linux服务器更新Node" rel="nofollow">facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2019/03/16/Linux服务器更新Node/&text=Linux服务器更新Node" target="_blank" title="Linux服务器更新Node" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=Linux服务器更新Node" target="_blank" title="Linux服务器更新Node" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2019/03/16/Linux服务器更新Node/index.html" target="_blank" rel="nofollow">QRcode</a></span>
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/03/15/小白搭建Linux服务系列/">←</a></span>
             
-            
-            <span class="bottom-bar-item"><a href="/2019/03/02/BFC格式化上下文/">→</a></span>
+            <span class="bottom-bar-item"><a href="/2019/03/15/小白搭建Linux服务系列/">→</a></span>
             
 			<span class="bottom-bar-item"><a href="#footer">↓</a></span>
 			<span class="bottom-bar-item"><a href="#">↑</a></span>
@@ -444,7 +490,7 @@ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 // 获取文章评论数
 var query1 = new AV.Query('Comment');
-query1.equalTo('url', '/2019/03/03/FLIP动画原理/');
+query1.equalTo('url', '/2019/03/16/Linux服务器更新Node/');
 query1.doesNotExist('pid');
 query1.count().then(function (count) {
     document.getElementById('page-title-comment').innerText = count + ' comment';
