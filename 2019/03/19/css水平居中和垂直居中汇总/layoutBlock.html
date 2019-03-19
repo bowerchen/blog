@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css layout</title>
+    <style>
+        /* 水平居中 */
+        /* 方法一 */
+        .parent {
+            height: 100px;
+            background: #f5f5d5;
+        } 
+        .one {
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .one .children {
+            float: left;
+        }
+        
+        /* 方法二 */
+        .two {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 方法三 */
+        .three .children {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        /* 方法四 */
+        .four .children {
+            position: absolute;
+            left: 50%;
+            width: 200px;
+            margin-left: calc(-0.5 * 200px);
+            text-align: center;
+        }
+
+        /* 方法五 */
+        .five .children {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 200px;
+            text-align: center;
+        }
+
+        /* 垂直居中 */
+        /* 方法一 */
+        .six::after, .children {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .six::after {
+            content: '';
+            height: 100%;
+        }
+
+        /* 方法二 */
+        .seven {
+            display: table;
+        }
+        .seven .children {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        /* 方法三 */
+        .eight {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 方法四 */
+        .nine {
+            position: relative;
+        }
+        .nine .children1 {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        .nine .children2 {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 20px;
+            margin-top: calc(-0.5 * 20px);
+        }
+        .nine .children3 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            height: 20px;
+            margin: auto 0;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">水平居中</h2>
+    <div class="parent one">
+        <div class="children">子元素设置为float</div>
+    </div>
+    <br>
+    <div class="parent two">
+        <div class="children">使用弹性布局flex</div>
+    </div>
+    <br>
+    <div class="parent three">
+        <div class="children">绝对定位+transform</div>
+    </div>
+    <br>
+    <div class="parent four">
+        <div class="children">绝对定位+负margin</div>
+    </div>
+    <br>
+    <div class="parent five">
+        <div class="children">绝对定位+margin自适应</div>
+    </div>
+    <hr>
+    <h2 style="text-align: center">垂直居中</h2>
+    <div class="parent six">
+        <div class="children">inline-block居中</div>
+    </div>
+    <br>
+    <div class="parent seven">
+        <div class="children">display: table</div>
+    </div>
+    <br>
+    <div class="parent eight">
+        <div class="children">使用flex</div>
+    </div>
+    <br>
+    <div class="parent nine">
+        <div class="children1">绝对定位+transform</div>
+        <div class="children2">绝对定位+负margin</div>
+        <div class="children3">绝对定位+margin自适应</div>
+    </div>
+    
+</body>
+</html>

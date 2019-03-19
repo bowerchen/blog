@@ -22,7 +22,7 @@
     
     <title>
     
-        淘宝基础版全屏店招制作 - 前端开发学习 || 一名前端程序猿
+        前端开发学习 || 一名前端程序猿
     
     </title>
     <meta name="keywords" content="Web前端 html">
@@ -99,102 +99,88 @@
 <article class="main-content page-page" itemscope itemtype="http://schema.org/Article">
 	<div class="post-header">
 		<h1 class="post-title" itemprop="name headline">
-			淘宝基础版全屏店招制作
+			
 		</h1>
 		<div class="post-data">
 			
-			<span id="/2018/12/20/淘宝基础版全屏店招制作/" class="leancloud-visitors" data-flag-title="淘宝基础版全屏店招制作">
+			<span id="/2019/03/19/css水平居中和垂直居中汇总/layoutInline/" class="leancloud-visitors" data-flag-title="">
 				<span class="leancloud-visitors-count">0</span> Views 
 			</span>
 			
-            <time datetime="1545310511" itemprop="datePublished">Published on Dec 20, 2018</time>
+            <time datetime="1552986076" itemprop="datePublished">Published on Mar 19, 2019</time>
 			
 			with <a id="page-title-comment" href="#vcomments"></a>
 			
 			<div style="font-size: 13px;">
-				<span class="post-count">本文字数：689 字</span>
+				<span class="post-count">本文字数：81 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 2 min</span>
+				<span class="post-count">阅读时长 ≈ 1 min</span>
 			</div>
 		</div>
 	</div>
 	<div id="post-content" class="post-content" itemprop="articleBody">
 		<p class="post-tags">
             
-            
-            <a href="/tags/淘宝店招-css/">淘宝店招 css</a>
-            
-            
         </p>
-		<p>今天在工作上遇到一些问题：</p>
-<h1 id="如何实现淘宝店铺基础版的全屏店招？"><a href="#如何实现淘宝店铺基础版的全屏店招？" class="headerlink" title="如何实现淘宝店铺基础版的全屏店招？"></a>如何实现淘宝店铺基础版的全屏店招？</h1><p>百度了很多遍方法，也找不出好的解决办法。<br>只好实践出真理了。</p>
-<a id="more"></a>
-<p>首先，在淘宝基础版中，店招<strong>最大的宽度950px</strong>，<strong>高度120px~150px</strong>。而<strong>页头背景也只有固定的蓝白色</strong>。如果想要实现自定义的店招，就只能通过css来处理了。</p>
-<p><strong>第一步</strong>，用ps制作好全屏店招。这制作过程省略……<br>（本人顺便用一个海报来做演示）<br><img src="/2018/12/20/淘宝基础版全屏店招制作/img.JPG"></p>
-<p><strong>第二步</strong>，将店招图片上传到淘宝的<strong>图片空间</strong><br><img src="/2018/12/20/淘宝基础版全屏店招制作/upload.JPG"></p>
-<p><strong>第三步</strong>，进入淘宝装修后台，点开导航条的右上角的设置，在<strong>显示设置</strong>里添加css代码。</p>
-<pre><code class="css">
-.skin-box-bd {
-    position: relative;
-    left: -485px;
-    top: -120px;
-    width: 1920px;
-    height: 150px;
-    padding-left: 485px;
-    padding-top: 120px;
-    background: url(&quot;店招图片背景地址&quot;) 0 0 no-repeat;
-}
-</code></pre>
-<img src="/2018/12/20/淘宝基础版全屏店招制作/addcss.JPG">
-<p><strong>第四步</strong>，点击发布就OK了，就可以看到全屏店招了<br><img src="/2018/12/20/淘宝基础版全屏店招制作/realize.JPG"></p>
-<p>当然，这全屏店招有些限制，比如</p>
-<ol>
-<li>不能添加热点连接</li>
-<li>不能放置搜索框</li>
-</ol>
-<p>如果以后发现有这些方面的优化，我也会第一时间来更新。</p>
-<hr>
-<p>2019/1/11</p>
-<p>今天终于解决<strong>如何添加热点链接</strong>的问题了</p>
-<p>首先，我们需要自定义店牌，也就是说通过代码来实现店牌。</p>
-<p>废话不多说，直接上代码：</p>
-<pre><code class="html">&lt;div style=&quot;1920px; height: 150px;&quot;&gt;
+		<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css layout</title>
+    <style>
+        /* 水平居中 */
+        /* 方法一 */
+        .parent {
+            width: 200px;
+            height: 200px;
+            background: #f5f5d5;
+            margin: 0 0 20px 50px;
+        } 
+        .one {
+            text-align: center;
+        }
+        
+        /* 方法二 */
+        .two {
+            display: flex;
+            justify-content: center;
+        }
 
-    &lt;div class=&quot;footer-more-trigger vjs-center-container&quot; style=&quot;width: 1px; height: 1px; border: 0; padding: 0; line-height:0; left: auto; top: auto; background: none;margin:0&quot;&gt;
+        /* 方法三 */
 
-        &lt;div class=&quot;footer-more-trigger vjs-center-container&quot; style=&quot;width:1920px; height: 150px; border: 0; padding: 0; line-height:0; left: -485px; top: auto; background: none;margin:0; z-index: 99;&quot;&gt;
+        /* 垂直居中 */
+        /* 方法一 */
+        .three .children {
+            line-height: 200px;
+        }
 
-            &lt;img src=&quot;店招图片地址&quot; /&gt;
-        &lt;/div&gt;&lt;!-- 居中显示 --&gt;
-    &lt;/div&gt;&lt;!-- 定位参考 --&gt;
-&lt;/div&gt;&lt;!-- 容器 --&gt;
-
-</code></pre>
-<p>紧接着，设置导航，在显示设置添加下面代码</p>
-<pre><code class="css">
-.skin-box-bd {
-    position: relative;
-    top: -150px;
-    left: -485px;
-    padding-left: 485px;
-    padding-top: 150px;
-    background: url(&quot;图片地址&quot;);
-    width: 1920px;
-}
-
-</code></pre>
-<p>这里有几点需要注意下：</p>
-<ol>
-<li><p>第二个和第三个div的class属性，一定要添加vjs-center-container，否则在宝贝详细页就会点击不了链接（本人测试过）</p>
-</li>
-<li><p>.skin-box-hd 一定要添加width: 1920px;否则就会显示950px宽，并居左显示。</p>
-</li>
-</ol>
-<p>通过这个方法，不仅可以添加链接，还可以制作一些别的交互，比如表单、优惠提示等等！</p>
-<p>好了，今天就分享到这！如果不知道如何制作其他特效，别着急，以后我会一一分享所制作过的案例。</p>
-<p>以上代码均本人测试过，如果有其他问题。</p>
-<p>可以添加微信：bowerchen1112</p>
-
+        /* 方法二 */
+        .four {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent one">
+        <span class="children">margin: 0 auto</span>
+    </div>
+    <br>
+    <div class="parent two">
+        <span class="children">使用弹性布局flex</span>
+    </div>
+    <br>
+    <div class="parent three">
+        <span class="children">使用text-align属性</span>
+    </div>
+    <br>
+    <div class="parent four">
+        <span class="children">使用弹性布局flex</span>
+    </div>
+</body>
+</html>
 		
 		<div style="text-align: center; margin: 20px 0;">
 			<p>如果我的文章对你有很大帮助，那么不妨</p>
@@ -213,7 +199,7 @@
 		
 		
 		<p class="post-info">
-			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Jan 20, 2019 02:03 pm
+			本文由 <a href="http://yoursite.com">bowerchen</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>最后编辑时间为: Mar 19, 2019 06:29 pm
 		</p>
 	</div>
 </article>
@@ -221,15 +207,17 @@
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
 			<span class="bottom-bar-item">Share : </span>
-			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/20/淘宝基础版全屏店招制作/index.html" target="_blank" title="淘宝基础版全屏店招制作" rel="nofollow">facebook</a></span>
-			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2018/12/20/淘宝基础版全屏店招制作/&text=淘宝基础版全屏店招制作" target="_blank" title="淘宝基础版全屏店招制作" rel="nofollow">Twitter</a></span>
-			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=淘宝基础版全屏店招制作" target="_blank" title="淘宝基础版全屏店招制作" rel="nofollow">Weibo</a></span>
-			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2018/12/20/淘宝基础版全屏店招制作/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/19/css水平居中和垂直居中汇总/layoutInline/index.html" target="_blank" title="" rel="nofollow">facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=http://yoursite.com/2019/03/19/css水平居中和垂直居中汇总/layoutInline/&text=" target="_blank" title="" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=&amp;title=" target="_blank" title="" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=http://yoursite.com/2019/03/19/css水平居中和垂直居中汇总/layoutInline/index.html" target="_blank" rel="nofollow">QRcode</a></span>
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/01/01/淘宝基础版店铺如何实现全屏代码/">←</a></span>
+            <span class="bottom-bar-item"><a href="/2019/03/19/css水平居中和垂直居中汇总/layoutBlock/">←</a></span>
             
+            
+            <span class="bottom-bar-item"><a href="/2019/03/19/css水平居中和垂直居中汇总/">→</a></span>
             
 			<span class="bottom-bar-item"><a href="#footer">↓</a></span>
 			<span class="bottom-bar-item"><a href="#">↑</a></span>
@@ -510,7 +498,7 @@ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 
 // 获取文章评论数
 var query1 = new AV.Query('Comment');
-query1.equalTo('url', '/2018/12/20/淘宝基础版全屏店招制作/');
+query1.equalTo('url', '/2019/03/19/css水平居中和垂直居中汇总/layoutInline/');
 query1.doesNotExist('pid');
 query1.count().then(function (count) {
     document.getElementById('page-title-comment').innerText = count + ' comment';

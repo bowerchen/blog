@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css layout</title>
+    <style>
+        /* 水平居中 */
+        /* 方法一 */
+        .parent {
+            width: 200px;
+            height: 200px;
+            background: #f5f5d5;
+            margin: 0 0 20px 50px;
+        } 
+        .one {
+            text-align: center;
+        }
+        
+        /* 方法二 */
+        .two {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 方法三 */
+
+        /* 垂直居中 */
+        /* 方法一 */
+        .three .children {
+            line-height: 200px;
+        }
+
+        /* 方法二 */
+        .four {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent one">
+        <span class="children">margin: 0 auto</span>
+    </div>
+    <br>
+    <div class="parent two">
+        <span class="children">使用弹性布局flex</span>
+    </div>
+    <br>
+    <div class="parent three">
+        <span class="children">使用text-align属性</span>
+    </div>
+    <br>
+    <div class="parent four">
+        <span class="children">使用弹性布局flex</span>
+    </div>
+</body>
+</html>
